@@ -228,6 +228,8 @@ int main() {
     ImGui::DestroyContext();
 
     // Cleanup GLFW and GLEW...
+    glfwTerminate();
+
 
     return 0;
 }

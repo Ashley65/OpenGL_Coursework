@@ -16,8 +16,8 @@ set(IMGUI_SOURCES
 add_executable(OpenGLCoursework main.cpp
         generating/PerlinNoise.cpp
         generating/PerlinNoise.h
-        window/camera.cpp
-        window/camera.h
+        window/viewport/camera.cpp
+        window/viewport/camera.h
         ${IMGUI_SOURCES}
 )
 
