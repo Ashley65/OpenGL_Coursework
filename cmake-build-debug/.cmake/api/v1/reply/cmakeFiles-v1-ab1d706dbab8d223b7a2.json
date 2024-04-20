@@ -1,0 +1,371 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.28.1/CMakeSystem.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.28.1/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.28.1/CMakeRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindOpenGL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glm/glmConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glm/glmConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glm/glmConfig-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glm/glmConfig-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glfw3/glfw3ConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glfw3/glfw3Config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glfw3/glfw3Targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glfw3/glfw3Targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glfw3/glfw3Targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glew/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glew/glew-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glew/glew-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glew/glew-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glew/glew-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glew/CopyImportedTargetProperties.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glad/gladConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glad/gladConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glad/gladTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glad/gladTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glad/gladTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glui/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glui/gluiConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glui/gluiConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glui/gluiTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glui/gluiTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/glui/gluiTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/soil2/soil2Config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/soil2/soil2Targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/soil2/soil2Targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/imgui/imgui-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/imgui/imgui-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/imgui/imgui-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/NigelWork/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/imgui/imgui-targets-release.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "E:/C-C++/OpenGLCoursework/cmake-build-debug",
+		"source" : "E:/C-C++/OpenGLCoursework"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
