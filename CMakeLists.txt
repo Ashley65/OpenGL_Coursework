@@ -11,6 +11,10 @@ set(IMGUI_SOURCES
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_widgets.cpp
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_impl_glfw.cpp
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_impl_opengl3.cpp
+        window/frontPage/frontPage.cpp
+        window/frontPage/frontPage.h
+        window/windowBase.h
+        render/renderBase.h
 )
 
 add_executable(OpenGLCoursework main.cpp
@@ -19,6 +23,11 @@ add_executable(OpenGLCoursework main.cpp
         window/viewport/camera.cpp
         window/viewport/camera.h
         ${IMGUI_SOURCES}
+        window/TGWindow.cpp
+        window/TGWindow.h
+        render/renderBase.h
+        elements/vertexHolder.cpp
+        elements/vertexHolder.h
 )
 
 
@@ -47,3 +56,6 @@ target_link_libraries(OpenGLCoursework PRIVATE soil2)
 
 find_package(imgui CONFIG REQUIRED)
 target_link_libraries(OpenGLCoursework PRIVATE imgui::imgui)
+
+find_package(assimp CONFIG REQUIRED)
+target_link_libraries(OpenGLCoursework PRIVATE assimp::assimp)

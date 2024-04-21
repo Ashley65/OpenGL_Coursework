@@ -123,113 +123,48 @@
 #include "Lib/imgui/imgui_impl_glfw.h"
 #include "Lib/imgui/imgui_impl_opengl3.h"
 
+#include "window/frontPage/frontPage.h"
+
 int main() {
-    // Setup GLFW and GLEW as before...
-    glfwInit();
-
-    // Set window hints
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    // Create window
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Test", nullptr, nullptr);
-    if (window == nullptr) {
-        std::cout << "Failed to create GLFW window" << std::endl;
+   // Initialize GLFW
+    if (!glfwInit()) {
+         std::cerr << "Failed to initialize GLFW" << std::endl;
+         return -1;
+    }
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "OpenGL Coursework", nullptr, nullptr);
+    if (!window) {
+        std::cerr << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
-
-    // Make the window's context current
     glfwMakeContextCurrent(window);
+    glfwSwapInterval(1); // Enable vsync
 
     // Initialize GLEW
-    glewExperimental = true;
     if (glewInit() != GLEW_OK) {
-        std::cout << "Failed to initialize GLEW" << std::endl;
-        glfwTerminate();
+        std::cerr << "Failed to initialize GLEW" << std::endl;
         return -1;
     }
 
+    // initialize front page
+    frontPage frontPage(window);
 
-    // Setup ImGui binding
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-    // Setup ImGui style
-    ImGui::StyleColorsDark();
-
-    // Setup Platform/Renderer bindings
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 330");
-
+    // Main loop
     while (!glfwWindowShouldClose(window)) {
-        // Start the ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
+        // Render front page
+        frontPage.render();
 
-        // Create a simple ImGui window
-        ImGui::Begin("Test Window");
-        ImGui::Text("Hello, ImGui!");
-        ImGui::End();
-
-        //create a menu bar
-        if (ImGui::BeginMainMenuBar()) {
-            // File menu
-            if (ImGui::BeginMenu("File")) {
-                if (ImGui::MenuItem("Open", "Ctrl+O")) {
-                    // Handle Open action
-
-                }
-                if (ImGui::MenuItem("Save", "Ctrl+S")) {
-                    // Handle Save action
-                }
-                if (ImGui::MenuItem("Save As..")) {
-                    // Handle Save As action
-                }
-                ImGui::EndMenu();
-            }
-            // Edit menu
-            if (ImGui::BeginMenu("Edit")) {
-                if (ImGui::MenuItem("Undo", "Ctrl+Z")) {
-                    // Handle Undo action
-                }
-                if (ImGui::MenuItem("Redo", "Ctrl+Y", false, false)) { // Disabled item
-                    // Handle Redo action
-                }
-                // More items...
-                ImGui::EndMenu();
-            }
-            // Other menus...
-
-            ImGui::EndMainMenuBar();
-        }
-
-        // Render ImGui
-        ImGui::Render();
-        int display_w, display_h;
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glClear(GL_COLOR_BUFFER_BIT);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        // Swap buffers and poll events
+        // Swap the front and back buffers
         glfwSwapBuffers(window);
+
+        // Poll for events
         glfwPollEvents();
-
-
     }
-
-    // Cleanup ImGui
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-
-    // Cleanup GLFW and GLEW...
+    // Cleanup
+    frontPage.~frontPage();
+    // Terminate GLFW
     glfwTerminate();
 
-
     return 0;
+
 }
