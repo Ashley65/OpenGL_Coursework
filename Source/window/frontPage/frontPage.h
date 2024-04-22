@@ -19,9 +19,9 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "../../Lib/imgui/imgui.h"
-#include "../../Lib/imgui/imgui_impl_glfw.h"
-#include "../../Lib/imgui/imgui_impl_opengl3.h"
+#include "../../../Lib/imGui/imgui.h"
+#include "../../../Lib/imGui/imgui_impl_glfw.h"
+#include "../../../Lib/imGui/imgui_impl_opengl3.h"
 
 // create the frontPage class
 

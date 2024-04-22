@@ -10,11 +10,11 @@
 #include <cmath>
 
 
-class PerlinNoise {
+class perlinNoise {
 
-    PerlinNoise();
-    PerlinNoise(unsigned int seed);
-    double noise(double x, double y);
+    perlinNoise();
+    explicit perlinNoise(unsigned int seed);
+    double noise(double x, double y, double z);
 
 
 private:

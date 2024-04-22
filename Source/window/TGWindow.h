@@ -8,7 +8,9 @@
 #include "windowBase.h"
 
 
-class TGWindow: public IWindow{
+class GLwindow: public IWindow{
+public:
+
 
 };
 

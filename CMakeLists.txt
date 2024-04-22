@@ -11,23 +11,29 @@ set(IMGUI_SOURCES
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_widgets.cpp
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_impl_glfw.cpp
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_impl_opengl3.cpp
-        window/frontPage/frontPage.cpp
-        window/frontPage/frontPage.h
-        window/windowBase.h
-        render/renderBase.h
+        Source/window/frontPage/frontPage.cpp
+        Source/window/frontPage/frontPage.h
+        Source/window/windowBase.h
+        Source/render/renderBase.h
+        Source/elements/elements.h
 )
 
 add_executable(OpenGLCoursework main.cpp
-        generating/PerlinNoise.cpp
-        generating/PerlinNoise.h
-        window/viewport/camera.cpp
-        window/viewport/camera.h
+        Source/generating/PerlinNoise.cpp
+        Source/generating/PerlinNoise.h
+        Source/elements/camera.cpp
+        Source/elements/camera.h
         ${IMGUI_SOURCES}
-        window/TGWindow.cpp
-        window/TGWindow.h
-        render/renderBase.h
-        elements/vertexHolder.cpp
-        elements/vertexHolder.h
+        Source/window/TGWindow.cpp
+        Source/window/TGWindow.h
+        Source/render/renderBase.h
+        Source/elements/vertexHolder.cpp
+        Source/elements/vertexHolder.h
+        Source/elements/input.h
+        Source/shader/shaderUtils.cpp
+        Source/shader/shaderUtils.h
+        Source/render/openGLBufferManager.cpp
+        Source/render/openGLBufferManager.h
 )
 
 

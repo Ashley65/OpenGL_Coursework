@@ -123,7 +123,7 @@
 #include "Lib/imgui/imgui_impl_glfw.h"
 #include "Lib/imgui/imgui_impl_opengl3.h"
 
-#include "window/frontPage/frontPage.h"
+#include "Source/window/frontPage/frontPage.h"
 
 int main() {
    // Initialize GLFW

@@ -15,9 +15,10 @@ namespace elements {
     public:
         vertexHolder() : mPos(), mNormal(),mUV(){
 
+
         }
         vertexHolder(glm::vec3 pos, glm::vec3 normal, glm::vec2 uv);
-        vertexHolder(const std::vector<std::string> tokens);
+        explicit vertexHolder(std::vector<std::string> tokens);
         glm::vec3 mPos{};
         glm::vec3 mNormal{};
         glm::vec2 mUV{};
