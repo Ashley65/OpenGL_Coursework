@@ -68,6 +68,8 @@ namespace render {
         virtual void postRender() = 0;
         virtual void render() = 0;
 
+        virtual void endRender() = 0;
+
 
 
 
