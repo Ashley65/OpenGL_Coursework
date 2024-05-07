@@ -11,29 +11,76 @@ set(IMGUI_SOURCES
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_widgets.cpp
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_impl_glfw.cpp
         ${CMAKE_SOURCE_DIR}/Lib/imgui/imgui_impl_opengl3.cpp
-        Source/window/frontPage/frontPage.cpp
-        Source/window/frontPage/frontPage.h
+        ${CMAKE_SOURCE_DIR}/Lib/imgui/imfilebrowser.h
+        Source/ui/frontPage/frontPage.cpp
+        Source/ui/frontPage/frontPage.h
         Source/window/windowBase.h
         Source/render/renderBase.h
         Source/elements/elements.h
+        Source/elements/mesh.cpp
+        Source/elements/mesh.h
+        Source/elements/light.h
+        Source/ui/sceneView.cpp
+        Source/ui/sceneView.h
+        Source/render/uiContext.cpp
+        Source/render/uiContext.h
+)
+
+set(ELEMENTS_SOURCES
+        Source/elements/elements.h
+        Source/elements/mesh.cpp
+        Source/elements/mesh.h
+        Source/elements/light.h
+        Source/elements/vertexHolder.cpp
+        Source/elements/vertexHolder.h
+        Source/elements/camera.cpp
+        Source/elements/camera.h
+        Source/elements/input.h
+)
+set(SHADER_SOURCES
+        Source/shader/shaderUtils.cpp
+        Source/shader/shaderUtils.h
+)
+
+set(RENDER_SOURCES
+        Source/render/renderBase.h
+        Source/render/openGLBufferManager.cpp
+        Source/render/openGLBufferManager.h
+        Source/render/openGLContext.cpp
+        Source/render/openGLContext.h
+        Source/render/uiContext.cpp
+        Source/render/uiContext.h
+)
+
+set(UI_SOURCES
+        Source/ui/sceneView.cpp
+        Source/ui/sceneView.h
+)
+
+set(WINDOW_SOURCES
+        Source/window/TGWindow.cpp
+        Source/window/TGWindow.h
+        Source/ui/frontPage/frontPage.cpp
+        Source/ui/frontPage/frontPage.h
+        Source/window/windowBase.h
+)
+
+set(GENERATING_SOURCES
+        Source/generating/PerlinNoise.cpp
+        Source/generating/PerlinNoise.h
 )
 
 add_executable(OpenGLCoursework main.cpp
-        Source/generating/PerlinNoise.cpp
-        Source/generating/PerlinNoise.h
-        Source/elements/camera.cpp
-        Source/elements/camera.h
+        ${GENERATING_SOURCES}
         ${IMGUI_SOURCES}
-        Source/window/TGWindow.cpp
-        Source/window/TGWindow.h
-        Source/render/renderBase.h
-        Source/elements/vertexHolder.cpp
-        Source/elements/vertexHolder.h
-        Source/elements/input.h
-        Source/shader/shaderUtils.cpp
-        Source/shader/shaderUtils.h
-        Source/render/openGLBufferManager.cpp
-        Source/render/openGLBufferManager.h
+        ${ELEMENTS_SOURCES}
+        ${SHADER_SOURCES}
+        ${RENDER_SOURCES}
+        ${UI_SOURCES}
+        ${WINDOW_SOURCES}
+        Source/app.cpp
+        Source/app.h
+
 )
 
 

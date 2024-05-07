@@ -27,10 +27,10 @@ namespace render {
 
     };
 
-    class frameBuffer {
+    class fraBuffer {
     public:
 
-        frameBuffer(): mFBO(0), mDepthId{0}
+        fraBuffer(): mFBO(0), mDepthId{0}
         {
 
         }
@@ -66,7 +66,6 @@ namespace render {
 
         virtual void preRender() = 0;
         virtual void postRender() = 0;
-        virtual void render() = 0;
 
         virtual void endRender() = 0;
 

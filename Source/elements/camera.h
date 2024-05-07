@@ -31,6 +31,13 @@ namespace element {
 
         camera(const glm::vec3 &position, float yaw, float pitch, float fov, float aspect, float nearClip, float farClip) {
             mPosition = position;
+            mYaw = yaw;
+            mPitch = pitch;
+            mFOV = fov;
+            mAspect = aspect;
+            mNear = nearClip;
+            mFar = farClip;
+            updateViewMatrix();
         }
         void update(shaderUtils::shader* shader) override {
             glm::mat4 model = glm::mat4(1.0f);
@@ -132,15 +139,15 @@ namespace element {
     private:
         glm::mat4 mProjection = glm::mat4{ 1.0f };
         glm::vec3 mPosition = { 0.0f, 0.0f, 0.0f };
-        glm::mat4 mViewMatrix;
+        glm::mat4 mViewMatrix{};
 
         glm::vec3 mFocus = { 0.0f, 0.0f, 0.0f };
 
         float mDistance = 5.0f;
-        float mAspect;
-        float mFOV;
-        float mNear;
-        float mFar;
+        float mAspect{};
+        float mFOV{};
+        float mNear{};
+        float mFar{};
         float mPitch = 0.0f;
         float mYaw = 0.0f;
 
