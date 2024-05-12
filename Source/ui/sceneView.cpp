@@ -40,8 +40,12 @@ void UI::sceneView::render() {
     mLight->update(mShader.get());
 
     mFrameBuffer->bind();
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+
 
     if (mMesh){
+        // update the mesh
+
         mMesh->update(mShader.get());
         mMesh->render();
     }
@@ -57,7 +61,7 @@ void UI::sceneView::render() {
 
     // add rendered texture to ImGUI scene window
     uint64_t textureID = mFrameBuffer->getTexture();
-    ImGui::Image((void*)textureID, viewportPanelSize, ImVec2(0, 1), ImVec2(1, 0));
+    ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{mScreenSize.x,mScreenSize.y}, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
 
     ImGui::End();
 

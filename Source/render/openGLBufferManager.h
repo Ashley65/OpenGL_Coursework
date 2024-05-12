@@ -7,11 +7,7 @@
 
 #include "renderBase.h"
 
-//openGl
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-
+#include "../../packageM.h"
 
 namespace render {
   class vertexBuffer : public VerIndexBuffer {

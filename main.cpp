@@ -116,55 +116,60 @@
 //    return 0;
 //}
 
-#include <iostream>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include "Lib/imgui/imgui.h"
-#include "Lib/imgui/imgui_impl_glfw.h"
-#include "Lib/imgui/imgui_impl_opengl3.h"
 
-#include "Source/ui/frontPage/frontPage.h"
+//
+//#include "Source/ui/frontPage/frontPage.h"
+//
+//int main() {
+//   // Initialize GLFW
+//    if (!glfwInit()) {
+//         std::cerr << "Failed to initialize GLFW" << std::endl;
+//         return -1;
+//    }
+//    GLFWwindow* window = glfwCreateWindow(1280, 720, "OpenGL Coursework", nullptr, nullptr);
+//    if (!window) {
+//        std::cerr << "Failed to create GLFW window" << std::endl;
+//        glfwTerminate();
+//        return -1;
+//    }
+//    glfwMakeContextCurrent(window);
+//    glfwSwapInterval(1); // Enable vsync
+//
+//    // Initialize GLEW
+//    if (glewInit() != GLEW_OK) {
+//        std::cerr << "Failed to initialize GLEW" << std::endl;
+//        return -1;
+//    }
+//
+//    // initialize front page
+//    frontPage frontPage(window);
+//
+//    // Main loop
+//    while (!glfwWindowShouldClose(window)) {
+//        // Render front page
+//        frontPage.render();
+//
+//        // Swap the front and back buffers
+//        glfwSwapBuffers(window);
+//
+//        // Poll for events
+//        glfwPollEvents();
+//    }
+//    // Cleanup
+//    frontPage.~frontPage();
+//    // Terminate GLFW
+//    glfwTerminate();
+//
+//    return 0;
+//
+//}
 
-int main() {
-   // Initialize GLFW
-    if (!glfwInit()) {
-         std::cerr << "Failed to initialize GLFW" << std::endl;
-         return -1;
-    }
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "OpenGL Coursework", nullptr, nullptr);
-    if (!window) {
-        std::cerr << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
-    glfwMakeContextCurrent(window);
-    glfwSwapInterval(1); // Enable vsync
 
-    // Initialize GLEW
-    if (glewInit() != GLEW_OK) {
-        std::cerr << "Failed to initialize GLEW" << std::endl;
-        return -1;
-    }
 
-    // initialize front page
-    frontPage frontPage(window);
+#include "Source/app.h"
 
-    // Main loop
-    while (!glfwWindowShouldClose(window)) {
-        // Render front page
-        frontPage.render();
 
-        // Swap the front and back buffers
-        glfwSwapBuffers(window);
-
-        // Poll for events
-        glfwPollEvents();
-    }
-    // Cleanup
-    frontPage.~frontPage();
-    // Terminate GLFW
-    glfwTerminate();
-
+int main(void){
+    app::Instance().loop();
     return 0;
-
 }

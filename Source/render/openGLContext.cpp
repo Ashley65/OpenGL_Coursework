@@ -5,12 +5,12 @@
 #include "openGLContext.h"
 
 // GL includes
-#include <gl/glew.h>
-#include <GLFW/glfw3.h>
+
 
 
 #include <iostream>
-
+#include <GLFW/glfw3.h>
+#include <GL/glew.h>
 
 
 namespace render
@@ -58,6 +58,9 @@ namespace render
             return false;
         }
 
+        // initailize the window
+        mWindow = window;
+
         // Set the window callbacks
         glfwSetWindowUserPointer(win, window);
         glfwSetKeyCallback(win, onKeyCallback);
@@ -84,12 +87,20 @@ namespace render
     }
 
     void openGLContext::preRender() {
+        if (mWindow == nullptr) {
+            // initialize the window
+            std::cerr << "mWindow is null" << std::endl;
+        }
         glViewport(0,0, mWindow->width, mWindow->height);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     void openGLContext::postRender() {
+        if (mWindow == nullptr) {
+            std::cerr << "mWindow is null" << std::endl;
+            return;
+        }
         glfwSwapBuffers(static_cast<GLFWwindow*>(mWindow->getNativeWindow()));
         glfwPollEvents();
     }

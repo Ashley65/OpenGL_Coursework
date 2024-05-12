@@ -7,21 +7,13 @@
 #define GLM_ENABLE_EXPERIMENTAL
 
 
-
-#include <iostream> // this is needed for provides basic input/output services
-#include <cmath> // this is needed for the sin and cos functions
-#include <algorithm> // this is needed for the min and max functions
-#include <stdexcept> // this is needed for the runtime_error
-
-// openGL libraries
-#include <glm/glm.hpp> // this is needed for the glm::vec3
-#include <glm/gtx/quaternion.hpp> // this is needed for the glm::quat
-#include <glm/gtc/matrix_transform.hpp> // this is needed for the glm::lookAt and glm::perspective functions
-#include <glfw/glfw3.h> // this is needed for the GLFWwindow which will be used for the user input
+#include <glm/gtx/quaternion.hpp>
+#include "../../packageM.h"
 
 // elements libraries
 #include "elements.h" // this is needed for the elements class
 #include "input.h"
+#include "../shader/shaderUtils.h"
 
 
 namespace element {
@@ -29,18 +21,22 @@ namespace element {
 
     public:
 
-        camera(const glm::vec3 &position, float yaw, float pitch, float fov, float aspect, float nearClip, float farClip) {
+        camera(const glm::vec3 &position,  float fov, float aspect, float near, float far) {
             mPosition = position;
-            mYaw = yaw;
-            mPitch = pitch;
-            mFOV = fov;
             mAspect = aspect;
-            mNear = nearClip;
-            mFar = farClip;
+            mNear = near;
+            mFar = far;
+            mFOV = fov;
+
+            setAspect(mAspect);
             updateViewMatrix();
         }
         void update(shaderUtils::shader* shader) override {
             glm::mat4 model = glm::mat4(1.0f);
+            shader->setMat4("model", model);
+            shader->setMat4("view", getViewMatrix());
+            shader->setMat4("projection", getProjection());
+            shader->setVec3("camPos", mPosition);
 
         }
 
@@ -51,6 +47,7 @@ namespace element {
 
         void setDistance(float offset) {
             mDistance += offset;
+            updateViewMatrix();
         }
         const glm::mat4& getProjection() const {
             return mProjection;
@@ -85,11 +82,11 @@ namespace element {
 
         void onMouseMove(double x, double y, elemInput button) {
             glm::vec2 currentPos2d = { x, y };
+            glm::vec2 pos2d{ x, y };
 
 
             if (button == elemInput::Right) {
-                glm::vec2 pos2d{ x, y };
-                glm::vec2 delta = pos2d - mCurrentPos2d;
+                glm::vec2 delta = (pos2d - mCurrentPos2d) * 0.04f;
 
                 float sign = glm::dot(delta, glm::vec2(0.0f, 1.0f));
                 float angle = glm::length(delta) * cRotationSpeed;
@@ -103,17 +100,11 @@ namespace element {
 
             }
             else if (button == elemInput::Middle) {
-                glm::vec2 pos2d{ x, y };
-                glm::vec2 delta = pos2d - mCurrentPos2d;
+                glm::vec2 delta =(pos2d - mCurrentPos2d) * 0.003f;
 
-                float sign = glm::dot(delta, glm::vec2(0.0f, 1.0f));
-                float angle = glm::length(delta) * cRotationSpeed;
 
-                if (sign < 0.0f) {
-                    angle = -angle;
-                }
-
-                mPitch += glm::radians(angle);
+                mFocus += getRight() * -delta.x * mDistance;
+                mFocus += getUp() * delta.y * mDistance;
                 updateViewMatrix();
             }
 
@@ -135,19 +126,25 @@ namespace element {
             mViewMatrix = glm::inverse(mViewMatrix);
         }
 
+        // get position
+        glm::vec3 getPosition() const {
+            return mPosition;
+        }
+
 
     private:
+        glm::mat4 mViewMatrix;
         glm::mat4 mProjection = glm::mat4{ 1.0f };
         glm::vec3 mPosition = { 0.0f, 0.0f, 0.0f };
-        glm::mat4 mViewMatrix{};
 
         glm::vec3 mFocus = { 0.0f, 0.0f, 0.0f };
 
         float mDistance = 5.0f;
-        float mAspect{};
-        float mFOV{};
-        float mNear{};
-        float mFar{};
+        float mAspect;
+        float mFOV;
+        float mNear;
+        float mFar;
+
         float mPitch = 0.0f;
         float mYaw = 0.0f;
 
@@ -162,43 +159,5 @@ namespace element {
 
     };
 }
-class camera {
-public:
-    camera();
-
-    // setters
-    void setCameraPosition(const glm::vec3 &position);
-    void setRotation(float yaw, float pitch);
-    void setFOV(float fov);
-    void setAspect(float aspect);
-    void setNearClip(float nearClip);
-    void setFarClip(float farClip);
-
-    // getters
-    glm::vec3 getCameraDirection() const;
-    glm::vec3 getPosition() const;
-    glm::vec3 getUp() const;
-    glm::mat4 getViewMatrix() const;
-    glm::mat4 getProjectionMatrix() const;
-
-    // Process user input
-    void processInput(GLFWwindow *window, float deltaTime);
-    // update
-    void update(GLFWwindow *window, float deltaTime);
-
-    // Other functions
-    void move(const glm::vec3& offset);
-    void rotate(float yawOffset, float pitchOffset);
-
-private:
-    glm::vec3 position;
-    float yaw;
-    float pitch;
-    float fov;
-    float aspect;
-    float nearClip;
-    float farClip;
-
-};
 
 #endif //OPENGLCOURSEWORK_CAMERA_H

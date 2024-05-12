@@ -24,6 +24,7 @@ set(IMGUI_SOURCES
         Source/ui/sceneView.h
         Source/render/uiContext.cpp
         Source/render/uiContext.h
+        C:/Users/NigelWork/.vcpkg-clion/vcpkg/buildtrees/imgui/src/v1.90.2-4442117b09.clean/imgui_tables.cpp
 )
 
 set(ELEMENTS_SOURCES
@@ -55,6 +56,8 @@ set(RENDER_SOURCES
 set(UI_SOURCES
         Source/ui/sceneView.cpp
         Source/ui/sceneView.h
+        Source/ui/propertyPanel.cpp
+        Source/ui/propertyPanel.h
 )
 
 set(WINDOW_SOURCES
@@ -68,6 +71,21 @@ set(WINDOW_SOURCES
 set(GENERATING_SOURCES
         Source/generating/PerlinNoise.cpp
         Source/generating/PerlinNoise.h
+
+
+)
+
+set(IMPORT_SOURCE
+        Source/importMesh/objImport.cpp
+        Source/importMesh/objImport.h
+        Source/importMesh/importBase.h
+)
+
+set(UTIL_SOURCE
+        Source/utils/strUtils.h
+        packageM.h
+        Source/utils/ImguiWidgets.h
+
 )
 
 add_executable(OpenGLCoursework main.cpp
@@ -78,9 +96,10 @@ add_executable(OpenGLCoursework main.cpp
         ${RENDER_SOURCES}
         ${UI_SOURCES}
         ${WINDOW_SOURCES}
+        ${IMPORT_SOURCE}
+        ${UTIL_SOURCE}
         Source/app.cpp
         Source/app.h
-
 )
 
 

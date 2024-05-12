@@ -73,6 +73,9 @@ namespace elements{
     }
 
     void elements::mesh::render() {
+
+        init();
+        // Draw the triangles using the indices for the vertices in the vertex buffer
         mBufferManager->draw((int) mIndices.size());
     }
 
@@ -83,6 +86,7 @@ namespace elements{
     void elements::mesh::unbind() {
         mBufferManager->unbind();
     }
+
 
     mesh::~mesh() {
         destroyBuffer();

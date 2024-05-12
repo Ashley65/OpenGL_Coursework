@@ -5,6 +5,11 @@
 #ifndef OPENGLCOURSEWORK_RENDERBASE_H
 #define OPENGLCOURSEWORK_RENDERBASE_H
 
+#pragma once
+
+#include "../../packageM.h"
+
+
 #include "../elements/vertexHolder.h"
 #include "../window/windowBase.h"
 
@@ -21,9 +26,9 @@ namespace render {
 
 
     protected:
-        unsigned int mVB;
-        unsigned int mIB;
-        unsigned int mVA;
+        GLuint mVB;
+        GLuint  mIB;
+        GLuint  mVA;
 
     };
 

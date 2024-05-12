@@ -18,7 +18,7 @@ namespace shaderUtils{
         unsigned int shaderProgramID;
 
         // This function will get the compiled shader from the shader source code
-        unsigned int getCompiledShader(unsigned int shaderType, const  std::string& shaderSource);
+        static unsigned int getCompiledShader(unsigned int shaderType, const  std::string& shaderSource);
 
     public:
         shader() = default;
@@ -27,10 +27,10 @@ namespace shaderUtils{
         bool loadShader(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
 
         // use the shader program
-        void useShader();
+        void useShader() const;
 
         // unload the shader program
-        void unloadShader();
+        void unloadShader() const;
 
         // get the shader program ID
         unsigned int getShaderProgramID() const { return shaderProgramID; }

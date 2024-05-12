@@ -20,6 +20,7 @@
 #include "windowBase.h"
 // including the ui elements for the window
 #include "../ui/sceneView.h"
+#include "../ui/propertyPanel.h"
 
 #include <memory>
 
@@ -37,6 +38,7 @@ namespace window {
 
             mUICtx = std::make_unique<uiContext>();
             mRenderCtx = std::make_unique<openGLContext>();
+            ColumnsStorage.push_back(ImGuiOldColumns());
 
         }
         ~GLWindow();
@@ -63,12 +65,15 @@ namespace window {
 
         // make a window context
         GLFWwindow *mWindow;
+        //make a context for the colummns storage
+        std::vector<ImGuiOldColumns> ColumnsStorage;
         // make a render context
         std::unique_ptr<openGLContext> mRenderCtx;
         // make a ui context
         std::unique_ptr<uiContext> mUICtx;
         // UI context for the window components
         std::unique_ptr<sceneView> sceneViewCtx;
+        std::unique_ptr<propertyPanel> propertyPanelCtx;
 
         bool isRunning;
 

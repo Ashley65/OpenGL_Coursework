@@ -6,7 +6,7 @@
 #define OPENGLCOURSEWORK_MESH_H
 
 
-#include <memory>
+
 #include "vertexHolder.h"
 #include "elements.h"
 #include "../render/renderBase.h"
@@ -29,13 +29,24 @@ class mesh : public elements::Elements{
     std::vector<vertexHolder>& getVertices(){
         return mVertices;
     }
+    std::vector<unsigned int> getVertexIndices(){
+        return mIndices;
+    }
+
+    void updateMaterialProperties(const glm::vec3& color, float roughness, float metallic) {
+        mColor = color;
+        mRoughness = roughness;
+        mMetallic = metallic;
+    }
 
     void update(shaderUtils::shader* shaderProgram) override{
 
         //
-        shaderProgram->setVec3("lightPos", mColor);
-        shaderProgram->setF1(mRoughness, "material.roughness");
-        shaderProgram->setF1(mMetallic, "material.metallic");
+        shaderProgram->setVec3("albedo", mColor);
+
+        shaderProgram->setF1(mRoughness, "roughness");
+        shaderProgram->setF1(mMetallic, "metallic");
+        shaderProgram->setF1(1.0f, "ao");
         shaderProgram->setF1(1.0f, "material.ao");
 
     }
@@ -62,6 +73,7 @@ private:
     // Inherited via Elements
     std::vector<vertexHolder> mVertices;
     std::vector<unsigned int> mIndices;
+
 
     //buffer manager
     std::unique_ptr<render::vertexBuffer> mBufferManager;

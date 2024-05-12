@@ -4,11 +4,8 @@
 
 #ifndef OPENGLCOURSEWORK_VERTEXHOLDER_H
 #define OPENGLCOURSEWORK_VERTEXHOLDER_H
+#include "../../packageM.h"
 
-#include <glm/vec3.hpp>
-#include <glm/vec2.hpp>
-#include <vector>
-#include <string>
 
 namespace elements {
     class vertexHolder{

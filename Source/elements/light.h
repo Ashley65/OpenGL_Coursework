@@ -5,7 +5,9 @@
 #ifndef OPENGLCOURSEWORK_LIGHT_H
 #define OPENGLCOURSEWORK_LIGHT_H
 
+#pragma once
 
+#include "../../packageM.h"
 #include "elements.h"
 #include "../shader/shaderUtils.h"
 
@@ -14,7 +16,7 @@ namespace elements {
 
     public:
         light(){
-            mColor = {1.0f, 1.0f, 1.0f};
+            mColor = glm::vec3 {1.0f, 1.0f, 1.0f};
             mPosition = {0.0f, 0.0f, 0.0f};
             mAmbient = {0.2f, 0.2f, 0.2f};
             mDiffuse = {0.5f, 0.5f, 0.5f};
@@ -25,11 +27,11 @@ namespace elements {
         ~light() {}
 
         void update(shaderUtils::shader* shader) override {
-            shader->setVec3("light.position", mPosition);
-            shader->setVec3("light.ambient", mAmbient);
-            shader->setVec3("light.diffuse", mDiffuse);
-            shader->setVec3("light.Color", mColor * mStrength);
-            shader->setVec3("light.specular", mSpecular);
+            shader->setVec3("lightPosition", mPosition);
+            shader->setVec3("lightAmbient", mAmbient);
+            shader->setVec3("lightDiffuse", mDiffuse);
+            shader->setVec3("lightColor", mColor * mStrength);
+            shader->setVec3("lightSpecular", mSpecular);
 
         }
 

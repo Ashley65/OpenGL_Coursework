@@ -2,6 +2,7 @@
 // Created by NigelWork on 22/04/2024.
 //
 
+#include "../../packageM.h"
 #include "openGLBufferManager.h"
 
 void render::vertexBuffer::createBuffers(std::vector<elements::vertexHolder> vertices, std::vector<unsigned int> indices) {
@@ -66,28 +67,28 @@ void render::frameBuffer::createFrameBuffer(int32_t width, int32_t height) {
     mWidth = width;
     mHeight = height;
 
+
+
+
     if (mFBO) {
-        // Delete the frame buffer object if it already exists due to that we are creating a new one
         destroyFrameBuffer();
     }
+
+
 
     // Generate the frame buffer object
     glGenFramebuffers(1, &mFBO);
     // Bind the frame buffer object
     glBindFramebuffer(GL_FRAMEBUFFER, mFBO);
-    // Generate the texture object
-    glGenTextures(1, &mTexId);
-    // Bind the texture object
+    glCreateTextures(GL_TEXTURE_2D, 1, &mTexId);
     glBindTexture(GL_TEXTURE_2D, mTexId);
-    //
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, mWidth, mHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
-    // Set the texture parameters
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    // Attach the texture to the frame buffer object
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, mTexId, 0);
 
     glCreateTextures(GL_TEXTURE_2D, 1, &mDepthId);
@@ -99,12 +100,25 @@ void render::frameBuffer::createFrameBuffer(int32_t width, int32_t height) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
+    if (mDepthId == 0) {
+        std::cerr << "mDepthId is not initialized" << std::endl;
+        return;
+    }
+
+    if (!glIsTexture(mDepthId)) {
+        std::cerr << "mDepthId is not a valid texture" << std::endl;
+        return;
+    }
+
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, mDepthId, 0);
 
     GLenum buffers[4] = { GL_COLOR_ATTACHMENT0 };
-    glDrawBuffers(1, buffers);
+    glDrawBuffers(mTexId, buffers);
 
     unbind();
+
+
+
 
 }
 

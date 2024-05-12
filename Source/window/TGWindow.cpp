@@ -3,7 +3,7 @@
 //
 
 #include "TGWindow.h"
-
+#include "../importMesh/objImport.h"
 
 
 namespace window{
@@ -16,6 +16,11 @@ namespace window{
         mUICtx->init(this);
 
         sceneViewCtx = std::make_unique<sceneView>();
+        propertyPanelCtx = std::make_unique<propertyPanel>();
+
+        propertyPanelCtx->meshLoadCallback([this](const std::string& path){
+            sceneViewCtx->loadMesh(path);
+        });
 
 
 
@@ -62,6 +67,7 @@ namespace window{
         mUICtx ->preRender();
 
         sceneViewCtx -> render();
+        propertyPanelCtx -> render(sceneViewCtx.get());
 
         mUICtx ->postRender();
 

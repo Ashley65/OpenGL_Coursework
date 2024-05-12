@@ -18,16 +18,16 @@ unsigned int shaderUtils::shader::getCompiledShader(unsigned int shaderType, con
     glGetShaderiv(shaderID, GL_COMPILE_STATUS, &result);
 
     if (result == GL_FALSE){
-
         int length;
         glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &length);
-
-        GLchar* strInfoLog = new GLchar[length + 1];
+        auto* strInfoLog = new GLchar[length + 1];
         glGetShaderInfoLog(shaderID, length, nullptr, strInfoLog);
-
-        fprintf(stderr, "Compilation error in shader: %s\n", strInfoLog);
-        delete[] strInfoLog;
-
+        const char *strShaderType = nullptr;
+        switch(shaderType){
+            case GL_VERTEX_SHADER: strShaderType = "vertex"; break;
+            case GL_FRAGMENT_SHADER: strShaderType = "fragment"; break;
+        }
+        fprintf(stderr, "Compile failure in %s shader:\n%s\n", strShaderType, strInfoLog);
     }
     return shaderID;
 
@@ -63,11 +63,11 @@ bool shaderUtils::shader::loadShader(const std::string &vertexShaderFile, const 
     return true;
 }
 
-void shaderUtils::shader::useShader() {
+void shaderUtils::shader::useShader() const {
     glUseProgram(shaderProgramID);
 }
 
-void shaderUtils::shader::unloadShader() {
+void shaderUtils::shader::unloadShader() const {
     glDeleteProgram(shaderProgramID);
 }
 

@@ -6,6 +6,7 @@
 #define OPENGLCOURSEWORK_ELEMENTS_H
 
 #include "../shader/shaderUtils.h"
+#include "../../packageM.h"
 
 namespace elements {
     class Elements{

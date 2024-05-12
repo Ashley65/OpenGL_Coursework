@@ -24,10 +24,10 @@ namespace UI{
             mFrameBuffer->createFrameBuffer(mScreenSize.x, mScreenSize.y);
             mShader = std::make_unique<shaderUtils::shader>();
 
-            mShader->loadShader("../shaders/vertexShader.glsl", "..shaders/fragmentShader.glsl");
+            mShader->loadShader("../shaders/vertexShader.glsl", "../shaders/fragmentShader.glsl");
             mLight = std::make_shared<elements::light>();
 
-            mCamera = std::make_unique<element::camera>(glm::vec3 (0.0f, 0.0f, 3.0f), 45.0f, mScreenSize.x/mScreenSize.y, 0.1f, 100.0f, 0.1f, 100.0f);
+            mCamera = std::make_unique<element::camera>(glm::vec3(0.0f, 0.0f, 3.0f), 45.0f, 1.3f, 0.1f, 100.0f);
 
         }
         ~sceneView(){
@@ -42,12 +42,22 @@ namespace UI{
         std::shared_ptr<elements::mesh> getMesh(){
             return mMesh;
         }
+        // get light
+        std::shared_ptr<elements::light> getLight(){
+            return mLight;
+        }
+        // get camera
+        std::shared_ptr<element::camera> getCamera(){
+            return mCamera;
+        }
         void OnMouseScroll(float offset);
         void onMouseMove(float x, float y, element::elemInput button);
 
         void resetCamera(){
             mCamera->reset();
         }
+
+
 
     private:
         std::shared_ptr<element::camera> mCamera;
@@ -57,6 +67,8 @@ namespace UI{
         std::shared_ptr<shaderUtils::shader> mShader;
         std::shared_ptr<render::fraBuffer> mFrameBuffer;
         glm::vec2 mScreenSize;
+
+
     };
 
 }
