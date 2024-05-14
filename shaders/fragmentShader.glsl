@@ -17,6 +17,13 @@ uniform float metallic;
 uniform float roughness;
 uniform float ao;
 
+//texture
+
+varying vec2 TexCoords;
+uniform int textureLoaded;
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
 uniform vec3 camPos;
 
 const float PI = 3.14159265359;
@@ -27,6 +34,8 @@ float distributionGGX(vec3 N, vec3 H, float roughness)
     float a2 = a*a;
     float NdotH = max(dot(N, H), 0.0);
     float NdotH2 = NdotH*NdotH;
+
+
 
     float nom   = a2;
     float denom = (NdotH2 * (a2 - 1.0) + 1.0);
@@ -120,6 +129,16 @@ float attenuation = 1.0 / (distance * distance);
     // gamma correct
     color = pow(color, vec3(1.0/2.2));
 
+    if(textureLoaded == 1){
+        vec4 texColor1 = texture(texture1, TexCoords);
+        vec4 texColor2 = texture(texture2, TexCoords);
+        vec4 finalColor = mix(texColor1, texColor2, 0.5); // mix the colors of the two textures
+        color = color * vec3(finalColor);
+
+    }
+
     fragColor = vec4(color, 1.0);
+
+    //vec4 texColor = texture(albedoMap, TexCoords);
 }
 

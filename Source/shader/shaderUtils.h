@@ -26,6 +26,8 @@ namespace shaderUtils{
         // load the shader from the file
         bool loadShader(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
 
+        void setTexture(const std::string &name, unsigned int textureID, int textureUnit) const;
+
         // use the shader program
         void useShader() const;
 

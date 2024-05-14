@@ -12,6 +12,8 @@ namespace window{
         height = mHeight;
         title = mTitle;
 
+
+
         mRenderCtx->init(this);
         mUICtx->init(this);
 
@@ -21,6 +23,13 @@ namespace window{
         propertyPanelCtx->meshLoadCallback([this](const std::string& path){
             sceneViewCtx->loadMesh(path);
         });
+
+        propertyPanelCtx->textureLoadCallback([this](const std::string& path){
+            sceneViewCtx->loadTexture({path});
+        });
+
+
+
 
 
 
@@ -33,11 +42,47 @@ namespace window{
     }
 
     void GLWindow::keyCallback(int key, int scancode, int action, int mods) {
+
         if (action == GLFW_PRESS) {
             // This is the escape key m
             if (key == GLFW_KEY_ESCAPE) {
                 closeWindow();
             }
+            // This checks if the key is the space key and activates the camera movement
+            if (key == GLFW_KEY_SPACE) {
+                //check if the camera is active
+                if (sceneViewCtx->isCameraActive()) {
+                    sceneViewCtx->onMouseRelease();
+                } else {
+                    sceneViewCtx->onMouseClick();
+                }
+
+            }
+            // activates the camera movement
+            if (key == GLFW_KEY_W) {
+                sceneViewCtx->moveCameraForward();
+            }
+            if (key == GLFW_KEY_S) {
+                sceneViewCtx->moveCameraBackward();
+            }
+            if (key == GLFW_KEY_R) {
+                sceneViewCtx->resetCamera();
+            }
+            if (key == GLFW_KEY_A) {
+                sceneViewCtx->moveCameraLeft();
+            }
+            if (key == GLFW_KEY_D) {
+                sceneViewCtx->moveCameraRight();
+            }
+            if (key == GLFW_KEY_Q) {
+                sceneViewCtx->moveCameraUp();
+            }
+            if (key == GLFW_KEY_E) {
+                sceneViewCtx->moveCameraDown();
+            }
+
+
+
 
         }
 

@@ -23,7 +23,9 @@ void render::vertexBuffer::createBuffers(std::vector<elements::vertexHolder> ver
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(elements::vertexHolder), (const void*)offsetof(elements::vertexHolder, mNormal));
 
+    // Texture coordinates
     glEnableVertexAttribArray(2);
+    // 2 is the index of the texture coordinates
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(elements::vertexHolder), (const void*)offsetof(elements::vertexHolder, mUV));
 
     glBindVertexArray(0);

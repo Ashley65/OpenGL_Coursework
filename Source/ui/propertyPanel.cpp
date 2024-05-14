@@ -10,6 +10,9 @@
 namespace UI{
 void UI::propertyPanel::render(UI::sceneView *sceneView) {
     auto mesh = sceneView->getMesh();
+    // get the texture
+
+
     ImGui::Begin("Properties");
     if (ImGui::CollapsingHeader("Mesh",ImGuiTreeNodeFlags_DefaultOpen)) {
 
@@ -20,6 +23,17 @@ void UI::propertyPanel::render(UI::sceneView *sceneView) {
         ImGui::Text(Currentfile.c_str());
     }
 
+    ImGui::Separator();
+
+    if (ImGui::CollapsingHeader("Texture",ImGuiTreeNodeFlags_DefaultOpen)) {
+        if (ImGui::Button("Load Texture")) {
+            textureFileDialog.Open();
+        }
+        ImGui::SameLine();
+        ImGui::Text(textureFile.c_str());
+    }
+
+    ImGui::Separator();
 
     if (ImGui::CollapsingHeader("Material",ImGuiTreeNodeFlags_DefaultOpen)) {
 
@@ -35,6 +49,9 @@ void UI::propertyPanel::render(UI::sceneView *sceneView) {
         }
     }
 
+
+    ImGui::Separator();
+
     if (ImGui::CollapsingHeader("Light",ImGuiTreeNodeFlags_DefaultOpen)) {
         ImGui::Separator();
         ImGui::Text("Light Position");
@@ -45,8 +62,30 @@ void UI::propertyPanel::render(UI::sceneView *sceneView) {
             std::cerr << "Error: No light to draw" << std::endl;
 
         }
-
+        ImGui::Separator();
+        ImGui::Text("Light Strength");
+        ImGui::SliderFloat("Strength", &sceneView->getLight()->mStrength, 0.0f, 1000.0f);
+        ImGui::Separator();
+        ImGui::Text("Light Colour");
+        ImGui::ColorPicker3("Colour", &sceneView->getLight()->mColor[0],
+                            ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
     }
+
+    // Camera properties
+    if (ImGui::CollapsingHeader("Camera",ImGuiTreeNodeFlags_DefaultOpen)){
+        ImGui::Separator();
+
+        ImGui::Separator();
+        ImGui::Text("Camera Reset");
+        // Reset Camera
+        if (ImGui::Button("Reset Camera")){
+            sceneView->resetCamera();
+        }
+    }
+
+    // c
+
+
 
     ImGui::End();
 
@@ -56,6 +95,14 @@ void UI::propertyPanel::render(UI::sceneView *sceneView) {
         Currentfile = path.substr(path.find_last_of("/\\") + 1);
         mMeshLoadCallback(path);
         fileDialog.ClearSelected();
+    }
+
+    textureFileDialog.Display();
+    if (textureFileDialog.HasSelected()){
+        auto path = textureFileDialog.GetSelected().string();
+        textureFile = path.substr(path.find_last_of("/\\") + 1);
+        sceneView->getMesh()->loadTexture({path});
+        textureFileDialog.ClearSelected();
     }
 
 }

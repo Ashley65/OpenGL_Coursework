@@ -20,6 +20,7 @@ namespace elements {
         glm::vec3 mNormal{};
         glm::vec2 mUV{};
 
+
     };
 };
 

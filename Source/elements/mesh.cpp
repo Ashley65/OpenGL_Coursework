@@ -6,6 +6,8 @@
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
 
+#include "SOIL2/SOIL2.h"
+
 #include "../render/openGLBufferManager.h"
 
 
@@ -75,8 +77,13 @@ namespace elements{
     void elements::mesh::render() {
 
         init();
+
+
+
         // Draw the triangles using the indices for the vertices in the vertex buffer
         mBufferManager->draw((int) mIndices.size());
+
+
     }
 
     void elements::mesh::bind() {
@@ -92,6 +99,11 @@ namespace elements{
         destroyBuffer();
 
     }
+
+    bool mesh::loadTexture(const std::vector<std::string> &filename) {
+        return mTexture->loadTexture(filename[0]);
+    }
+
 
 }
 

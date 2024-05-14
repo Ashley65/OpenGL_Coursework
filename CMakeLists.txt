@@ -37,6 +37,8 @@ set(ELEMENTS_SOURCES
         Source/elements/camera.cpp
         Source/elements/camera.h
         Source/elements/input.h
+        Source/elements/texture.cpp
+        Source/elements/texture.h
 )
 set(SHADER_SOURCES
         Source/shader/shaderUtils.cpp

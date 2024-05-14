@@ -86,16 +86,13 @@ namespace element {
 
 
             if (button == elemInput::Right) {
-                glm::vec2 delta = (pos2d - mCurrentPos2d) * 0.04f;
+                glm::vec2 delta = (pos2d - mCurrentPos2d) * 0.004f;
 
-                float sign = glm::dot(delta, glm::vec2(0.0f, 1.0f));
-                float angle = glm::length(delta) * cRotationSpeed;
+                float sign = getUp().y < 0 ? -1.0f : 1.0f;
+                mPitch += sign * delta.y * cRotationSpeed;
+                mYaw += delta.x * cRotationSpeed;
 
-                if (sign < 0.0f) {
-                    angle = -angle;
-                }
 
-                mYaw += glm::radians(angle);
                 updateViewMatrix();
 
             }
@@ -126,16 +123,67 @@ namespace element {
             mViewMatrix = glm::inverse(mViewMatrix);
         }
 
-        // get position
-        glm::vec3 getPosition() const {
+        // get camera position
+        glm::vec3 getPosition() {
             return mPosition;
+        }
+
+        void moveForward(float speed) {
+            mPosition += getForward() * speed;
+            updateViewMatrix();
+        }
+        void moveRight(float speed) {
+            mPosition += getRight() * speed;
+            updateViewMatrix();
+        }
+        void moveUp(float speed) {
+            mPosition += getUp() * speed;
+            updateViewMatrix();
+        }
+        void moveBackward(float speed) {
+            mPosition -= getForward() * speed;
+            updateViewMatrix();
+        }
+        void moveLeft(float speed) {
+            mPosition -= getRight() * speed;
+            updateViewMatrix();
+        }
+        void moveDown(float speed) {
+            mPosition -= getUp() * speed;
+            updateViewMatrix();
+        }
+
+
+        void onKey(int key, int scancode, int action, int mods) {
+            if (action == GLFW_PRESS) {
+                if (key == GLFW_KEY_R) {
+                    reset();
+                }
+                if (key == GLFW_KEY_W) {
+                    mPosition += getForward() * 0.1f;
+                    updateViewMatrix();
+                }
+                if (key == GLFW_KEY_S) {
+                    mPosition -= getForward() * 0.1f;
+                    updateViewMatrix();
+                }
+                if (key == GLFW_KEY_A) {
+                    mPosition -= getRight() * 0.1f;
+                    updateViewMatrix();
+                }
+                if (key == GLFW_KEY_D) {
+                    mPosition += getRight() * 0.1f;
+                    updateViewMatrix();
+                }
+
+            }
         }
 
 
     private:
         glm::mat4 mViewMatrix;
         glm::mat4 mProjection = glm::mat4{ 1.0f };
-        glm::vec3 mPosition = { 0.0f, 0.0f, 0.0f };
+        glm::vec3 mPosition = { 1.0f, 1.0f, 1.0f };
 
         glm::vec3 mFocus = { 0.0f, 0.0f, 0.0f };
 

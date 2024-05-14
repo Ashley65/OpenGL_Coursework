@@ -36,9 +36,8 @@ namespace UI{
         void resize(int32_t width, int32_t height);
         void render();
         void loadMesh(const std::string& path);
-        void setMesh(const std::shared_ptr<elements::mesh>& mesh){
-            mMesh = mesh;
-        }
+        void loadTexture(const std::vector<std::string>& path);
+
         std::shared_ptr<elements::mesh> getMesh(){
             return mMesh;
         }
@@ -46,15 +45,44 @@ namespace UI{
         std::shared_ptr<elements::light> getLight(){
             return mLight;
         }
-        // get camera
-        std::shared_ptr<element::camera> getCamera(){
-            return mCamera;
-        }
+        //get texture
+
+
+
         void OnMouseScroll(float offset);
         void onMouseMove(float x, float y, element::elemInput button);
 
         void resetCamera(){
             mCamera->reset();
+        }
+
+        void onMouseClick(){
+            isClicked = true;
+        }
+        void onMouseRelease(){
+            isClicked = false;
+        }
+        bool isCameraActive() const{
+            return isClicked;
+        }
+
+        void moveCameraForward(){
+            mCamera->moveForward(2.0f);
+        }
+        void moveCameraBackward(){
+            mCamera->moveBackward(2.0f);
+        }
+        void moveCameraLeft(){
+            mCamera->moveLeft(2.0f);
+        }
+        void moveCameraRight(){
+            mCamera->moveRight(2.0f);
+        }
+        void moveCameraUp(){
+            mCamera->moveUp(2.0f);
+        }
+        void moveCameraDown(){
+            mCamera->moveDown(2.0f);
         }
 
 
@@ -67,6 +95,8 @@ namespace UI{
         std::shared_ptr<shaderUtils::shader> mShader;
         std::shared_ptr<render::fraBuffer> mFrameBuffer;
         glm::vec2 mScreenSize;
+
+        bool isClicked = false;
 
 
     };

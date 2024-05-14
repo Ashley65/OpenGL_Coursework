@@ -12,6 +12,8 @@
 #include "../render/renderBase.h"
 #include "../render/openGLBufferManager.h"
 #include "../shader/shaderUtils.h"
+#include "texture.h"
+
 
 
 namespace elements{
@@ -33,12 +35,6 @@ class mesh : public elements::Elements{
         return mIndices;
     }
 
-    void updateMaterialProperties(const glm::vec3& color, float roughness, float metallic) {
-        mColor = color;
-        mRoughness = roughness;
-        mMetallic = metallic;
-    }
-
     void update(shaderUtils::shader* shaderProgram) override{
 
         //
@@ -49,7 +45,14 @@ class mesh : public elements::Elements{
         shaderProgram->setF1(1.0f, "ao");
         shaderProgram->setF1(1.0f, "material.ao");
 
+        shaderProgram->setI1(mTextureLoaded ? 1 : 0, "textureLoaded");
+
+        // update the camera position
+        shaderProgram->setVec3("camPos", {0.0f, 0.0f, 0.0f});
+
+
     }
+    bool loadTexture(const std::vector<std::string>& filename);
 
 
 
@@ -77,6 +80,11 @@ private:
 
     //buffer manager
     std::unique_ptr<render::vertexBuffer> mBufferManager;
+
+    // texture manager
+     std::shared_ptr<elements::texture> mTexture;
+
+    bool mTextureLoaded = false;
 
     };
 }

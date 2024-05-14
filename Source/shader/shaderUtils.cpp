@@ -101,6 +101,14 @@ void shaderUtils::shader::setF3(float v1, float v2, float v3, const std::string 
     glUniform3f(myLoc, v1, v2, v3);
 }
 
+void shaderUtils::shader::setTexture(const std::string &name, unsigned int textureID, int textureUnit)const {
+    GLint myLoc = glGetUniformLocation(shaderProgramID, name.c_str());
+    glUniform1i(myLoc, textureUnit);
+    glActiveTexture(GL_TEXTURE0 + textureUnit);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+}
+
 
 
 

@@ -20,8 +20,13 @@ void UI::sceneView::OnMouseScroll(float offset) {
 
 
 void UI::sceneView::onMouseMove(float x, float y, element::elemInput button) {
-    mCamera->onMouseMove(x, y, button);
+    if (isClicked){
+        mCamera->onMouseMove(x, y, button);
+    }
+
 }
+
+
 
 void UI::sceneView::loadMesh(const std::string &path) {
     if (mMesh) {
@@ -31,6 +36,16 @@ void UI::sceneView::loadMesh(const std::string &path) {
         mMesh->loadMesh(path);
     }
 
+}
+
+void sceneView::loadTexture(const std::vector<std::string> &path) {
+
+    if (mMesh) {
+        mMesh->loadTexture(path);
+    } else {
+        mMesh = std::make_shared<elements::mesh>();
+        mMesh->loadTexture(path);
+    }
 }
 
 void UI::sceneView::render() {
@@ -43,7 +58,7 @@ void UI::sceneView::render() {
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 
-    if (mMesh){
+    if (mMesh) {
         // update the mesh
 
         mMesh->update(mShader.get());
@@ -56,16 +71,17 @@ void UI::sceneView::render() {
     ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
     mScreenSize = {viewportPanelSize.x, viewportPanelSize.y};
 
-    mCamera->setAspect(mScreenSize.x/mScreenSize.y);
+    mCamera->setAspect(mScreenSize.x / mScreenSize.y);
     mCamera->update(mShader.get());
 
     // add rendered texture to ImGUI scene window
     uint64_t textureID = mFrameBuffer->getTexture();
-    ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{mScreenSize.x,mScreenSize.y}, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+    ImGui::Image(reinterpret_cast<void *>(textureID), ImVec2{mScreenSize.x, mScreenSize.y}, ImVec2{0, 1}, ImVec2{1, 0});
 
     ImGui::End();
 
-
 }
+
+
 
 }
